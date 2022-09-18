@@ -41,7 +41,7 @@ typedef struct token_s
 typedef struct instruction_s
 {
         char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number, token_t *);
+        int (*f)(stack_t **stack, unsigned int line_number, token_t **);
 }instruction_t;
 
 int line_check(char *line, char delim[]);
