@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	int exit_status, status;
 	FILE *fd;
 
-	
+
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
@@ -33,5 +33,5 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	else
 		printf("file close error\n");
-	return(exit_status);
+	return (exit_status);
 }
