@@ -10,7 +10,7 @@ int monty_pall(stack_t **stack, unsigned int line_number)
 	if (!*stack && line_number)
 		return (EXIT_FAILURE);
 	temp = *stack;
-	while (temp)
+	while (temp->next == NULL)
 	{
 		fprintf(stdout, "%d\n", temp->n);
 		temp = temp->next;
