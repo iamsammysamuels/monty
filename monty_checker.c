@@ -11,7 +11,7 @@ int file_check(FILE *fd)
 	size_t size = 0;
 	char *line = NULL, *dup_line = NULL;
 	char delim[] = " \n\t\a\b";
-	int i = 0, sstack = 0, exit_status = EXIT_SUCCESS;
+	int sstack = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0;
 	stack_t *stack;
 

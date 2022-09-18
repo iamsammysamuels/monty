@@ -25,7 +25,7 @@ int exec_line(stack_t **stack, unsigned int line_number, token_t **tokens)
 	{
 		if (strcmp(ope[i].opcode, temp->token_1) == 0)
 		{
-			ope[i].f(stack, line_number, tokens);
+			ope[i].f(stack, line_number);
 			return (EXIT_SUCCESS);
 		}
 		i++;

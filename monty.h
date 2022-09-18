@@ -41,7 +41,7 @@ typedef struct token_s
 typedef struct instruction_s
 {
         char *opcode;
-        int (*f)(stack_t **stack, unsigned int line_number, token_t **);
+        int (*f)(stack_t **stack, unsigned int line_number);
 }instruction_t;
 
 int line_check(char *line, char delim[]);
@@ -50,7 +50,7 @@ void parse_line(char *line, char delim[], token_t *tokens, unsigned int line_num
 int s_push(stack_t **stack, unsigned int line_number, token_t **tokens);
 void free_stack(stack_t **stack);
 int _atoi(char *);
-int monty_pall(stack_t **stack, unsigned int line_number, token_t **tokens);
+int monty_pall(stack_t **stack, unsigned int line_number);
 int exec_line(stack_t **stack, unsigned int line_number, token_t **tokens);
 /**int q_push(&stack, line_number, tokens);*/
 #endif
