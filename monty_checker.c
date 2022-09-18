@@ -109,14 +109,14 @@ void parse_line(char *line, char delim[], token_t *tokens, unsigned int line_num
 	if (line_len == 0)
 	{
 		free(tokens);
-		fprintf(stderr, "L<%i>: unknown instruction <%s>", line_number, line);
+		fprintf(stderr, "L%i: unknown instruction %s", line_number, line);
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(dup_line, delim);
 	if (token == NULL)
 	{
 		free(tokens);
-		fprintf(stderr, "L<%i>: unknown instruction <%s>", line_number, token);
+		fprintf(stderr, "L%i: unknown instruction %s", line_number, token);
 		exit(EXIT_FAILURE);
 	}
 	while (token)

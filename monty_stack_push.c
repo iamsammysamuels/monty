@@ -15,13 +15,13 @@ int s_push(stack_t **stack, unsigned int line_number, token_t **tokens)
 	temp = *stack;
 	if (strlen(num->token_2) == 0)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		return (EXIT_FAILURE);
 	}
 	n = _atoi(num->token_2);
 	if (n == INT_MIN)
 	{
-		fprintf(stderr, "L<%d>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		return (EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
