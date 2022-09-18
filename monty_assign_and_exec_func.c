@@ -12,16 +12,15 @@
 
 
 int exec_line(stack_t **stack, unsigned int line_number, token_t **tokens)
-{
-	int i = 0;
-	token_t *temp;
-
-	temp = *tokens;
+{	
 	instruction_t ope[] = {
 		{"pall", monty_pall},
 		{"null", NULL},
 	};
-
+	token_t *temp;
+	int i = 0;
+	
+	temp = *tokens;
 	while (i < 2)
 	{
 		if (strcmp(ope[i].opcode, temp->token_1) == 0)
