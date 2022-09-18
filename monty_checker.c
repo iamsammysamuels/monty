@@ -9,7 +9,7 @@ int file_check(FILE *fd)
 {
 	token_t *tokens;
 	size_t size = 0;
-	char *line = NULL, *dup_line = NULL;
+	char *line = NULL, *dup_line = NULL, *temp;
 	char delim[] = " \n\t\a\b";
 	int sstack = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0;
@@ -42,21 +42,29 @@ int file_check(FILE *fd)
 		else if (strcmp(tokens->token_1, "push") == 0 && sstack == 0)
 		{
 			exit_status = s_push(&stack, line_number, &tokens);
-			if (exit_status == EXIT_FAILURE)
+			if (exit_status == EXIT_SUCCESS)
+				continue;
+			else
 				break;
 		}
+		temp = tokens->token_1;
+		while (strcmp(tokens->token_1, "push") != 0)
+		{
+			tokens->token_2 = 0;
+			tokens->token_1 = "push";
+		}
+		tokens->token_1 = temp;
 		/*else if (strcmp(tokens->token_1, "push") == 0 && sstack == 1)
 		*{
 			*exit_status = int q_push(&stack, line_number, &tokens);
 			if (exit_status == EXIT_FAILURE)
 				break;
 		}*/
+		exit_status = exec_line(&stack, line_number, &tokens);
+		if (exit_status == EXIT_SUCCESS)
+			continue;
 		else
-		{
-			exit_status = exec_line(&stack, line_number, &tokens);
-			if (exit_status == EXIT_FAILURE)
-				break;
-		}
+			break;
 	}
 	free(dup_line);
 	free_stack(&stack);
