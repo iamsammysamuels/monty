@@ -30,8 +30,8 @@ int exec_line(stack_t **stack, unsigned int line_number, token_t **tokens)
 		}
 		i++;
 	}
-	fprintf(stderr, "L<%d>: unknown", line_number);
-	fprintf(stderr, " instruction <%s>\n", temp->token_1);
+	fprintf(stderr, "L%d: unknown ", line_number);
+	fprintf(stderr, "instruction %s\n", temp->token_1);
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
